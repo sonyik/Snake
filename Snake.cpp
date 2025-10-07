@@ -4,22 +4,16 @@
 std::vector<std::vector<char>> CreateField(int width, int height)
 {
     std::vector<std::vector<char>> field(height, std::vector<char>(width, ' '));
-    
-    for (int i = 0; i < height; ++i)
+    for (int j = 0; j < width; j++) 
     {
-        for (int j = 0; j < width; ++j)
-        {
-            if (i == 0 || i == height - 1)
-            {
-                field[i][j] = '@';  
-            }
-            else if (j == 0 || j == width - 1)
-            {
-                field[i][j] = '@'; 
-            }
-        }
+        field[0][j] = '@';
+        field[height-1][j] = '@';
     }
-    
+    for (int i = 1; i < height-1; i++) 
+    {
+        field[i][0] = '@';
+        field[i][width-1] = '@';
+    }
     return field;
 }
 
